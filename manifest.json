@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Conversation Exporter",
+  "version": "1.0",
+  "description": "Export the conversation from the ChatGPT webpage.",
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon48.png"
+    }
+  },
+  "icons": {
+    "48": "icon48.png"
+  }
+}

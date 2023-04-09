@@ -1,0 +1,27 @@
+body {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px; 
+  }
+
+.export-button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #4b5563;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(145deg, #3b4252, #434c5e);
+  transition: all 0.3
+}
+
+.export-button:hover {
+    transform: scale(1.05);
+  }
