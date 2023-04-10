@@ -16,15 +16,32 @@ function extractTextFromElement(element) {
     return text.replace('1 / 1', '').trim();
   }
   
-  function exportConversation() {
+  chrome.runtime.onMessage.addListener(function (request) {
+    console.log('content.js: onMessage');
+    if (request.exportMode) {
+      exportConversation(request.exportMode);
+    }
+  });
+  
+  function exportConversation(exportMode) {
     const messages = document.querySelectorAll('.text-base');
     let conversationText = '';
     let isUserMessage = true;
   
+    console.log(messages);
+  
     messages.forEach(message => {
       const messageText = extractTextFromElement(message);
-      const label = isUserMessage ? 'User:' : 'ChatGPT:';
-      conversationText += label + ' ' + messageText + '\n\n';
+  
+      if (
+        (exportMode === 'full') ||
+        (exportMode === 'user' && isUserMessage) ||
+        (exportMode === 'chatgpt' && !isUserMessage)
+      ) {
+        const label = isUserMessage ? '😃 User:' : ' 🤖 ChatGPT:';
+        conversationText += label + ' ' + messageText + '\n\n';
+      }
+  
       isUserMessage = !isUserMessage;
     });
   
@@ -34,6 +51,3 @@ function extractTextFromElement(element) {
     link.download = 'conversation.txt';
     link.click();
   }
-  
-  exportConversation();
-  
