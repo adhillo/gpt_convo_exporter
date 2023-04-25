@@ -1,22 +1,18 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "ChatGPT Conversation Exporter",
   "version": "1.0",
   "description": "Export transcript from any ChatGPT conversation page.",
-  "permissions": ["activeTab"],
-  "browser_action": {
+  "permissions": ["activeTab", "scripting"],
+  "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "48": "icon48.png"
+      "48": "icon48.png",
+      "128": "icon128.png"
     }
   },
   "icons": {
-    "48": "icon48.png"
-  },
-  "content_scripts": [
-    {
-      "matches": ["https://*/*", "http://*/*"],
-      "js": ["content.js"]
-    }
-  ]
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }

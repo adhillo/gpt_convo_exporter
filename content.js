@@ -38,7 +38,7 @@ function extractTextFromElement(element) {
         (exportMode === 'user' && isUserMessage) ||
         (exportMode === 'chatgpt' && !isUserMessage)
       ) {
-        const label = isUserMessage ? '😃 User:' : ' 🤖 ChatGPT:';
+        const label = isUserMessage ? '😃 User:' : '🤖 ChatGPT:';
         conversationText += label + ' ' + messageText + '\n\n';
       }
   

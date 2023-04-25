@@ -2,9 +2,15 @@ console.log("enter script");
 
 function exportConversation(mode) {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    chrome.tabs.executeScript(tabs[0].id, { file: "content.js" }, function () {
-      chrome.tabs.sendMessage(tabs[0].id, { exportMode: mode });
-    });
+    chrome.scripting.executeScript(
+      {
+        target: { tabId: tabs[0].id },
+        files: ["content.js"],
+      },
+      function () {
+        chrome.tabs.sendMessage(tabs[0].id, { exportMode: mode });
+      }
+    );
   });
 }
 
